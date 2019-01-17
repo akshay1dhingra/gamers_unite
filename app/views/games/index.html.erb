@@ -1,0 +1,13 @@
+<% if user_signed_in? %>
+    <h2>Hello <%= current_user.username %></h2>
+<% end %>
+
+<br>
+
+<h2>Here are all of the games. Click on one to see reviews!</h2>
+
+<% @games.each do |game| %>
+    <p><%= link_to game.name, game_path(game) %></p>
+<% end %>
+
+<p><%= link_to 'Create New Game', new_game_path, method: :get %></p>
