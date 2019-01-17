@@ -3,9 +3,12 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'test#home'
-
-  resources :games 
-  resources :reviews
+  root 'games#index'
   
+  resources :reviews
+
+  resources :games do 
+    resources :reviews 
+  end
+
 end
