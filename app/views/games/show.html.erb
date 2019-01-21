@@ -1,2 +1,3 @@
 <%= @game.name %>
-<%= @game.description%>
+<%= @game.description%><br>
+<%= link_to 'Delete Game', game_path(@game), method: :delete %>

@@ -9,7 +9,7 @@ class GamesController < ApplicationController
         if user_signed_in?
             @game = Game.new
         else
-            logged_in
+            go_log_in
         end
     end
 
@@ -31,6 +31,13 @@ class GamesController < ApplicationController
     
 
     def destroy
+        if user_signed_in?
+            game = Game.find(params[:id])
+            game.destroy
+            redirect_to root_path 
+        else
+            go_log_in
+        end
     end 
 
     private
