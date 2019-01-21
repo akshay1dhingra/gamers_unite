@@ -28,9 +28,7 @@ class GamesController < ApplicationController
 
     def update 
     end
-
-    def create
-    end
+    
 
     def destroy
     end 
