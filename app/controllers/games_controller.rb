@@ -2,27 +2,25 @@ class GamesController < ApplicationController
     require 'pry'
 
     def index 
-        # binding.pry
         @games = Game.all
     end 
 
-    def new 
+    def new
         if user_signed_in?
             @game = Game.new
         else
-            redirect_to root_path
+            logged_in
         end
-    end 
+    end
 
     def create
-        raise.params
-        @game = Game.new(game_params)
-        if @game.save
-            redirect_to game_path(@game)
+        game = Game.new(game_params)
+        if game.save
+            redirect_to root_path
         else 
-            render :new
-        end 
-    end 
+            redirect_to new_game_path 
+        end
+    end
 
     def show 
         @game = Game.find(params[:id])
@@ -38,11 +36,8 @@ class GamesController < ApplicationController
     end 
 
     private
-
-    def game_params
-        params.require(:game).permit(
-        :name, 
-        :description)
-    end
+        def game_params
+            params.require(:game).permit(:name, :description)
+        end
 
 end
