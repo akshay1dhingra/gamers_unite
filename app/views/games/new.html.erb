@@ -1,16 +1,4 @@
 <h2>Create new Game</h2>
 
-<%= form_for @game, :url => url_for(:controller => 'games', :action => 'create') do |f| %>
+<%= render partial: 'form', locals: {game: @game} %>
 
-    <%= f.label :name %>
-    <%= f.text_field :name %><br>
-
-    <br>
-
-    <%= f.label :description %>
-    <%= f.text_area :description %><br>
-
-    <br>
-    
-    <%= f.submit %>
-<% end %>
