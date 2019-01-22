@@ -26,7 +26,24 @@ class GamesController < ApplicationController
         @game = Game.find(params[:id])
     end 
 
-    def update 
+    def edit
+        if user_signed_in?
+            @game = Game.find(params[:id])
+            # redirect_to edit_game_path(@game)
+        else
+            go_log_in
+        end
+    end
+
+    def update
+        game = Game.find(params[:id])
+        game.update(game_params)
+        if game.save
+            redirect_to game_path(game)
+        else
+            
+            redirect_to edit_game_path(game)
+        end
     end
     
 
