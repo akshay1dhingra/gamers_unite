@@ -1,0 +1,15 @@
+<%= form_for review do |f| %>
+    <%= f.hidden_field :game_id %>
+    <%= f.hidden_field :user_id %>
+
+    <%= f.label :title %>
+    <%= f.text_field :title %> <br>
+
+    <%= f.label :content %>
+    <%= f.text_area :content %> <br>
+
+    <%= f.label :score %>
+    <%= f.select :score, (1..10) %> <br>
+
+    <%= f.submit %>
+<% end %>
