@@ -1,4 +1,4 @@
-<h3>Hi <%= @user.username %>! Here are all of your reviews!</h3>
+<h3>Hi <%= @user.username %>! Here are all of the games that have reviews!</h3>
 
 <% @reviews.each do |review| %>
    <p><%= link_to review.game.name, game_review_path(review.game, review) %><p>
