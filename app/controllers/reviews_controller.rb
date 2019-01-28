@@ -7,7 +7,8 @@ class ReviewsController < ApplicationController
 
     def new
         if user_signed_in?
-            @review = Review.new
+            @review = Review.new(user_id: current_user.id, game_id: params[:game_id])
+            # binding.pry
         else 
             go_log_in
         end
