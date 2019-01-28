@@ -29,7 +29,10 @@ class GamesController < ApplicationController
     def edit
         if user_signed_in?
             @game = Game.find(params[:id])
-            # redirect_to edit_game_path(@game)
+            unless current_user == @game.reviews.first.user
+                flash[:alert] = "Only the Game Creator can Edit!"
+                redirect_to game_path(@game)
+            end
         else
             go_log_in
         end
@@ -50,8 +53,14 @@ class GamesController < ApplicationController
     def destroy
         if user_signed_in?
             game = Game.find(params[:id])
-            game.destroy
-            redirect_to root_path 
+            if current_user == game.reviews.first.user
+                game.delete
+                flash[:alert] = "Your game #{game.name} has been deleted"
+                redirect_to root_path
+            else 
+                flash[:alert] = "Only the Game Creator can delete it"
+                redirect_to game_path(game)
+            end
         else
             go_log_in
         end
