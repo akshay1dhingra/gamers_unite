@@ -53,7 +53,8 @@ class GamesController < ApplicationController
     def destroy
         if user_signed_in?
             game = Game.find(params[:id])
-            if current_user == game.reviews.first.user
+            # binding.pry
+            if current_user == game.users.first
                 game.delete
                 flash[:alert] = "Your game #{game.name} has been deleted"
                 redirect_to root_path
