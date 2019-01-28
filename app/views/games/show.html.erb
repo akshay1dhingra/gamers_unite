@@ -1,4 +1,5 @@
 <%= @game.name %>
 <%= @game.description%><br>
 <%= link_to 'Edit Game', edit_game_path(@game) %><br>
-<%= link_to 'Delete Game', game_path(@game), method: :delete %>
+<%= link_to 'Delete Game', game_path(@game), method: :delete %><br>
+<%= link_to 'Review Game', new_game_review_path(@game), method: :get %><br>
