@@ -28,6 +28,13 @@ class ReviewsController < ApplicationController
     end
 
     def destroy
+        if user_signed_in?
+            review = Review.find(params[:id])
+            review.delete
+            redirect_to reviews_path
+        else
+            go_log_in
+        end
     end
 
     private
