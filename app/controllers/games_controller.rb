@@ -29,7 +29,7 @@ class GamesController < ApplicationController
     def edit
         if user_signed_in?
             @game = Game.find(params[:id])
-            unless current_user == @game.reviews.first.user
+            unless current_user == @game.users.first
                 flash[:alert] = "Only the Game Creator can Edit!"
                 redirect_to game_path(@game)
             end
