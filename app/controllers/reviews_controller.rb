@@ -27,6 +27,29 @@ class ReviewsController < ApplicationController
         @review = Review.find(params[:id])
     end
 
+    def edit
+        if user_signed_in?
+            @review = Review.find(params[:id])
+            unless current_user == @review.user
+                flash[:alert] = "Only the Creator of this Review can edit it!"
+            redirect_to game_review_path(@review.game, @review)
+            end
+        else 
+            logged_in
+        end   
+    end
+
+    def update
+        @review = Review.find(params[:id])
+        @review.update(review_params)
+        if @review.save
+            redirect_to game_review_path(@review.game, @review)
+        else
+            flash[:alert] = review.e
+            redirect_to edit_game_review_path(@review.game, @review)
+        end
+    end
+
     def destroy
         if user_signed_in?
             review = Review.find(params[:id])
