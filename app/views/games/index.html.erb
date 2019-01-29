@@ -10,4 +10,6 @@
     <p><%= link_to game.name, game_path(game) %></p>
 <% end %>
 
+<p><%= link_to 'See top rated reviews!', reviews_descending_order_path %></p>
+
 <p><%= button_to 'Create New Game', new_game_path, method: :get %></p>
