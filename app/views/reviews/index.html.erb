@@ -1,7 +1,7 @@
 <h3>Hi <%= @user.username %>! Here are all of the games that have reviews!</h3>
 
-<% @reviews.each do |review| %>
-   <p><%= link_to review.game.name, game_review_path(review.game, review) %><p>
+<% @games.each do |game| %>
+    <p><%= link_to game.name, game_path(game) %>
 <% end %>
 
 <p><%= link_to 'Create new Review', new_review_path, method: :get %></p>
