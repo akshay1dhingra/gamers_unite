@@ -6,5 +6,5 @@ class Review < ApplicationRecord
     validates :content, presence: true
     validates :score, presence: true
 
-    scope :score, -> (number) { where ("score < ?"), number }
+    scope :score, -> (number) { where ("score > ?"), number }
 end
