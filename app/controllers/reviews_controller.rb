@@ -3,6 +3,8 @@ class ReviewsController < ApplicationController
     def index
         @reviews = Review.all
         @user = current_user
+        @games = Game.all
+        # binding.pry
     end
 
     def new
@@ -53,9 +55,12 @@ class ReviewsController < ApplicationController
     def destroy
         if user_signed_in?
             review = Review.find(params[:id])
-            review.delete
+            if current_user == review.user
+                review.delete
+            end
             redirect_to reviews_path
         else
+            flash[:alert] = "This is not your review to delete"
             go_log_in
         end
     end
