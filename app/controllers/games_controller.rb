@@ -18,6 +18,7 @@ class GamesController < ApplicationController
         if game.save
             redirect_to root_path
         else 
+            flash[:alert] = "This game has already been created!"
             redirect_to new_game_path 
         end
     end
