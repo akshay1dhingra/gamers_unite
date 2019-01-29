@@ -65,6 +65,11 @@ class ReviewsController < ApplicationController
         end
     end
 
+    def descending_order 
+        @reviews = Review.all
+        # binding.pry
+    end 
+
     private
     def review_params
         params.require(:review).permit(:title, :content, :score, :user_id, :game_id)

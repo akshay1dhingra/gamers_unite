@@ -1,0 +1,3 @@
+<% @reviews.each do |review| %>
+    <p><%= link_to review.game.name, game_review_path(review.game, review) %> - <%= review.score %> / 10 </p>
+<% end %>
