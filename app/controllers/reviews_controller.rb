@@ -67,7 +67,6 @@ class ReviewsController < ApplicationController
 
     def descending_order 
         @reviews = Review.all
-        # binding.pry
     end 
 
     private

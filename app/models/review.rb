@@ -6,7 +6,6 @@ class Review < ApplicationRecord
     validates :content, presence: true
     validates :score, presence: true
 
-    # scope :score, -> (number) { where ("score > ?"), number }
     scope :descending_order, -> { order(score: :desc) }
     
     # def self.descending_order
