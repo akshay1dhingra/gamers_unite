@@ -16,7 +16,7 @@ class GamesController < ApplicationController
     def create
         game = Game.new(game_params)
         if game.save
-            redirect_to root_path
+            redirect_to new_game_review_path(game)
         else 
             flash[:alert] = "This game has already been created!"
             redirect_to new_game_path 
