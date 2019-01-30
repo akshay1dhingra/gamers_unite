@@ -55,12 +55,14 @@ class ReviewsController < ApplicationController
     def destroy
         if user_signed_in?
             review = Review.find(params[:id])
-            if current_user == review.user
+            if review.user == current_user
                 review.delete
+                flash[:alert] = "Review has been deleted!"
+            else
+                flash[:alert] = "Only Creator of this Review can delete it!"
             end
-            redirect_to reviews_path
+            redirect_to game_reviews_path(review.game, review)
         else
-            flash[:alert] = "This is not your review to delete"
             go_log_in
         end
     end
