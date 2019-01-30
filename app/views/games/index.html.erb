@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-    <h2>Hello <%= current_user.username %></h2>
+    <h2>Hello <%= current_user.username || current_user.email.remove("@gmail.com") %></h2>
 <% end %>
 
 <br>
@@ -10,6 +10,8 @@
     <p><%= link_to game.name, game_path(game) %></p>
 <% end %>
 
-<p><%= link_to 'See top rated reviews!', reviews_descending_order_path %></p>
+<% if @games.any? %>
+    <p><%= link_to 'See top rated reviews!', reviews_descending_order_path %></p>
+<% end %>
 
 <p><%= button_to 'Create New Game', new_game_path, method: :get %></p>
