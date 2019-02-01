@@ -14,12 +14,12 @@ class GamesController < ApplicationController
     end
 
     def create
-        game = Game.new(game_params)
-        if game.save
-            redirect_to new_game_review_path(game)
+        @game = Game.new(game_params)
+        if @game.save
+            redirect_to new_game_review_path(@game)
         else 
-            flash[:alert] = "This game has already been created!"
-            redirect_to new_game_path 
+            # flash[:alert] = "This game has already been created!"
+            render :new
         end
     end
 
