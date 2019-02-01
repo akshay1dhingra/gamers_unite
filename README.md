@@ -1,24 +1,18 @@
-# README
+# Gamers Unite
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This Rails application is a peer-to-peer review site where users can submit games to the public to be reviewed. 
 
-Things you may want to cover:
+#Installation
 
-* Ruby version
+You can either clone or fork the repository from this repo directly. You may also contribute to the code as well.
 
-* System dependencies
+* Once you fork or clone the app, `cd` into that directory and run the following in your terminal: 
+```
+    $ bundle install
+    $ rake db:migrate 
+    $ thin start --ssl (if that does not work, run $ rails s)
+```
 
-* Configuration
+#Contributing 
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Please feel free to report any bugs or contribute to the code by submitting pull requests
