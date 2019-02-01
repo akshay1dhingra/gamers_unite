@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
     
     def index
-        @reviews = Review.all
+        # @reviews = Review.all
         @user = current_user
         @games = Game.all
         # binding.pry
@@ -37,7 +37,7 @@ class ReviewsController < ApplicationController
             redirect_to game_review_path(@review.game, @review)
             end
         else 
-            logged_in
+            go_log_in
         end   
     end
 
@@ -68,7 +68,14 @@ class ReviewsController < ApplicationController
     end
 
     def descending_order 
-        @reviews = Review.all
+        
+        if params[:review_score]
+            @reviews = Review.select_score(params[:review_score])
+        else
+            @reviews = Review.all
+        end
+        
+
     end 
 
     private
