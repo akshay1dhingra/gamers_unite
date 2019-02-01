@@ -7,9 +7,6 @@ class Review < ApplicationRecord
     validates :score, presence: true
 
     scope :descending_order, -> { order(score: :desc) }
+    scope :select_score,  -> (review_score) { where("score > ?", review_score) }
     
-    # def self.descending_order
-    #     order('created_at desc')
-    # end
-
 end
