@@ -3,6 +3,10 @@ class GamesController < ApplicationController
 
     def index 
         @games = Game.all
+        respond_to do |format|
+            format.html {render :index }
+            format.json {render json: @games}
+        end
     end 
 
     def new
@@ -25,6 +29,11 @@ class GamesController < ApplicationController
 
     def show 
         @game = Game.find(params[:id])
+        @users = User.all
+        respond_to do |format|
+            format.html {render :show }
+            format.json {render json: @game}
+        end
     end 
 
     def edit

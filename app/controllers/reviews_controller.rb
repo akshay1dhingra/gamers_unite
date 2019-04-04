@@ -1,9 +1,13 @@
 class ReviewsController < ApplicationController
     
     def index
-        # @reviews = Review.all
+        @reviews = Review.all
         @user = current_user
         @games = Game.all
+        respond_to do |format|
+            format.html {render :index }
+            format.json {render json: @games}
+        end
         # binding.pry
     end
 
@@ -27,6 +31,11 @@ class ReviewsController < ApplicationController
 
     def show
         @review = Review.find(params[:id])
+        @reviews = Review.all
+        respond_to do |format|
+            format.html {render :show }
+            format.json {render json: @review } #see if this is the json endpoint I need
+        end
     end
 
     def edit
