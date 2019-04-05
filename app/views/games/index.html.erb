@@ -6,12 +6,14 @@
 
 <h2>Here are all of the games. Click on one to see reviews!</h2>
 
-<% @games.each do |game| %>
-    <p><%= link_to game.name, game_path(game) %></p>
-<% end %>
+
+<div id="games">
+</div>
 
 <% if @games.any? %>
     <p><%= link_to 'See top rated reviews!', reviews_descending_order_path %></p>
 <% end %>
+
+<button id="see_more_games_button">See More Games</button>
 
 <p><%= button_to 'Create New Game', new_game_path, method: :get %></p>
