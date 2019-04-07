@@ -4,12 +4,9 @@ Description: <%= @game.description%><br>
 <%= link_to 'Edit Game', edit_game_path(@game) %><br>
 <%= link_to 'Delete Game', game_path(@game), method: :delete %><br>
 <%= link_to 'Review Game', new_game_review_path(@game), method: :get %><br>
+<a href="" id="show_review_link" data-id="<%= @game.id %>">Show Reviews</a>
+<br>
+<div id="review_list_div">
+</div>
+<br>
 
-<h2>Reviews</h2>
-
-<% @game.reviews.each do |review| %>
-        <h3><%= link_to review.title, game_review_path(review.game, review) %></h3>
-        <h4><%= review.score %> / 10</h4>
-        <p><%= review.content %></p>
-        <h5>written by <%= review.user.username || review.user.email.remove("@gmail.com") %></h5>
-<% end %>
