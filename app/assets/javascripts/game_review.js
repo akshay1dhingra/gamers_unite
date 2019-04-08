@@ -15,15 +15,23 @@ class Review {
         this.content = content
         this.score = score
     }
+    // render() {
+    //     let html = `
+    //     <h3>${this.title}</h3>
+    //     <h4>${this.score}/10</h4>
+    //     <p>content: ${this.content}</p>
+    //     `
+    //     return html
+    // }
+}
 
-    render() {
-        let html = `
-        <h3>${this.title}</h3>
-        <h4>${this.score}/10</h4>
-        <p>content: ${this.content}</p>
-        `
-        return html
-    }
+Review.prototype.render = function() {
+    let html = `
+    <h3>${this.title}</h3>
+    <h4>${this.score}/10</h4>
+    <p>content: ${this.content}</p>
+    `
+    return html
 }
 
 function getGames() {
