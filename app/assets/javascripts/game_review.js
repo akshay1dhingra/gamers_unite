@@ -7,6 +7,15 @@ function attachListeners() {
     $('#show_review_link').click(showReviews)
 }
 
+class Review {
+    constructor(id, title, content, score) {
+        this.id = id
+        this.title = title
+        this.content = content
+        this.score = score
+    }
+}
+
 function getGames() {
     // event.preventDefault()
     $(this).hide();
