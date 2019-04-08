@@ -4,16 +4,17 @@
     <title>Gamers Unite</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <h1>Gamers Unite</h1>
-
-    <br>
-    
+  <div class="container">
+    <h1 class="page-header">Gamers Unite</h1>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     
@@ -29,5 +30,6 @@
       <%= link_to "Login", new_user_session_path %>
       <%= link_to('Log in with Facebook!', user_facebook_omniauth_authorize_path) %>
     <% end %>
+  </div>
   </body>
 </html>
