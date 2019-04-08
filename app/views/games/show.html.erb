@@ -1,5 +1,4 @@
 <h2 id="show_game_title_and_description"><%= @game.name %></h2><br>
-<h3 id="show_game_title_and_description"><%= @game.description%></h3><br>
 <br>
 <%= link_to 'Edit Game', edit_game_path(@game) %><br>
 <%= link_to 'Review Game', new_game_review_path(@game), method: :get %><br>
