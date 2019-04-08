@@ -4,10 +4,6 @@ class ReviewsController < ApplicationController
         @reviews = Review.all
         @user = current_user
         @games = Game.all
-        respond_to do |format|
-            format.html {render :index }
-            format.json {render json: @games}
-        end
         # binding.pry
     end
 
@@ -67,10 +63,12 @@ class ReviewsController < ApplicationController
             if review.user == current_user
                 review.delete
                 flash[:alert] = "Review has been deleted!"
+                redirect_to game_reviews_path(review.game, review)
             else
                 flash[:alert] = "Only Creator of this Review can delete it!"
+                redirect_to game_path(review.game)
             end
-            redirect_to game_reviews_path(review.game, review)
+            
         else
             go_log_in
         end
