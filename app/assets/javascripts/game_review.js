@@ -15,14 +15,6 @@ class Review {
         this.content = content
         this.score = score
     }
-    // render() {
-    //     let html = `
-    //     <h3>${this.title}</h3>
-    //     <h4>${this.score}/10</h4>
-    //     <p>content: ${this.content}</p>
-    //     `
-    //     return html
-    // }
 }
 
 Review.prototype.render = function() {
@@ -40,7 +32,7 @@ function getGames() {
     $.get(`/games.json`, function(data){
         console.log(data)
         data.map(game => {
-            $('#games').append($('<a href="games/'+ game.id +'"><br>'+ game.name +'<br>'))
+            $('#games').append($('<br><a href="games/'+ game.id +'"><p id="links_to_games">'+ game.name +'</p><br>'))
         })
     })
 }
