@@ -5,6 +5,7 @@ $(document).ready(function () {
 function attachListeners() {
     $('#see_more_games_button').click(getGames)
     $('#show_review_link').click(showReviews)
+    $('#show_review_form').click(reviewForm)
 }
 
 class Review {
@@ -13,6 +14,15 @@ class Review {
         this.title = title
         this.content = content
         this.score = score
+    }
+
+    render() {
+        let html = `
+        <h3>${this.title}</h3>
+        <h4>${this.score}/10</h4>
+        <p>content: ${this.content}</p>
+        `
+        return html
     }
 }
 
@@ -33,10 +43,10 @@ function showReviews() {
     let id = parseInt($("#show_review_link").attr("data-id"))
     $.get(`/games/${id}.json`, function(data){
         data.reviews.map(r => {
-            let review = `<h3><a href="/games/${id}/reviews/${r.id}">${r.title}</a></h3><h4>${r.score}/10</h4><p>content: ${r.content}</p>`
+            let review = new Review(r.id, r.title, r.content, r.score)
             $.get(`/games/${id}/reviews/${r.id}.json`, function(data){
                 let username = data.user.username
-                $('#review_list_div').append(review + 'written by: ' + username)
+                $('#review_list_div').append(review.render() + 'written by: ' + username + `<p><a href="/games/${id}/reviews/${r.id}">Edit Review</a></p>`)
             })
         })
     })
