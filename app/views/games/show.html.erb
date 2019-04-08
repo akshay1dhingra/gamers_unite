@@ -3,8 +3,8 @@
 <br>
 <%= link_to 'Edit Game', edit_game_path(@game) %><br>
 <%= link_to 'Review Game', new_game_review_path(@game), method: :get %><br>
-<a href="" id="show_review_form" data-id="<%= @game.id %>">Create New Review</a><br>
-<a href="" id="show_review_link" data-id="<%= @game.id %>">Show Reviews</a>
+
+<a href="" id="show_review_link" data-id="<%= @game.id %>">Show Reviews</a><br>
 <br>
 <div id="review_list_div">
 </div>
