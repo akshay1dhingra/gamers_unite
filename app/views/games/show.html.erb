@@ -1,9 +1,9 @@
-Title: <%= @game.name %><br>
-Description: <%= @game.description%><br>
+<h2 id="show_game_title_and_description"><%= @game.name %></h2><br>
+<h3 id="show_game_title_and_description"><%= @game.description%></h3><br>
 <br>
 <%= link_to 'Edit Game', edit_game_path(@game) %><br>
-<%= link_to 'Delete Game', game_path(@game), method: :delete %><br>
 <%= link_to 'Review Game', new_game_review_path(@game), method: :get %><br>
+<a href="" id="show_review_form" data-id="<%= @game.id %>">Create New Review</a><br>
 <a href="" id="show_review_link" data-id="<%= @game.id %>">Show Reviews</a>
 <br>
 <div id="review_list_div">

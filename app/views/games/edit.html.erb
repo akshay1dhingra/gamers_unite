@@ -1,3 +1,5 @@
 <h2>Edit your game here</h2>
 
-<%= render partial: 'form', locals: {game: @game} %>
+<%= render partial: 'form', locals: {game: @game} %><br>
+
+<%= link_to 'Delete Game', game_path(@game), method: :delete %><br>
