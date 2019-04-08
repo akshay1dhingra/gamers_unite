@@ -5,7 +5,7 @@ $(document).ready(function () {
 function attachListeners() {
     $('#see_more_games_button').click(getGames)
     $('#show_review_link').click(showReviews)
-    $('#show_review_form').click(reviewForm)
+    $('#new_review').on('submit', (reviewForm))
 }
 
 class Review {
@@ -57,5 +57,18 @@ function showReviews() {
                 $('#review_list_div').append(review.render() + 'written by: ' + username + `<p><a href="/games/${id}/reviews/${r.id}">Edit Review</a></p>`)
             })
         })
+    })
+}
+
+function reviewForm() {
+    event.preventDefault()
+    let gameId = parseInt($("#show_review_form").attr("data-id"))
+    const values = $(this).serialize()
+
+    $.post(`/games/${gameId}/reviews`, values)
+    .done(function(r){
+        const newReview = new Review(r.id, r.title, r.content, r.score)
+        $('#new_submitted_review').append(newReview.render())
+        $('#remove_form_after_submission').html('')
     })
 }
