@@ -1,3 +1,7 @@
 <h2>Create new Review for <%= @review.game.name %>
 
-<h3><%= render partial: 'form', locals: {review: @review} %></h3>
+<h3 id="remove_form_after_submission"><%= render partial: 'form', locals: {review: @review} %></h3>
+
+
+<div id="new_submitted_review">
+</div>
