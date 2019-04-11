@@ -2,7 +2,7 @@ Search by score: <%= form_tag(reviews_descending_order_path, method: :get) do %>
     <%= select_tag :review_score, options_for_select(1..10) %>
     <%= submit_tag 'Search' %>
 <% end %>
-
+<br>
 <% @reviews.descending_order.each do |review| %>
     <p><%= link_to review.game.name, game_review_path(review.game, review) %> - Score: <%= review.score %> / 10 </p>
 <% end %> 
