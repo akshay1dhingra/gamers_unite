@@ -1,5 +1,7 @@
 # Gamers Unite
 
+<img width="756" alt="Screen Shot 2019-04-11 at 10 08 58 PM" src="https://user-images.githubusercontent.com/21001647/56009858-ec485280-5ca6-11e9-8921-ebe0d5b6935d.png">
+
 This Rails application is a peer-to-peer review site where users can submit games to the public to be reviewed. 
 
 # Installation
