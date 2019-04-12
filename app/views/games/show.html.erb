@@ -1,4 +1,5 @@
-<h2 id="show_game_title_and_description"><%= @game.name %></h2><br>
+<h2 class="nes-container is-centered" id="show_game_title_and_description"><%= @game.name %></h2><br>
+<br>
 <br>
 <%= link_to 'Edit Game', edit_game_path(@game) %><br>
 <%= link_to 'Review Game', new_game_review_path(@game), method: :get %><br>
