@@ -32,7 +32,7 @@ function getGames() {
     $.get(`/games.json`, function(data){
         console.log(data)
         data.map(game => {
-            $('#games').append($('<br><a href="games/'+ game.id +'"><p id="links_to_games">'+ game.name +'</p><br>'))
+            $('#games').append($('<br><a href="games/'+ game.id +'" class="nes-btn is-primary"><p id="links_to_games">'+ game.name +'</p>'))
         })
     })
 }
@@ -46,7 +46,7 @@ function showReviews() {
             let review = new Review(r.id, r.title, r.content, r.score)
             $.get(`/games/${id}/reviews/${r.id}.json`, function(data){
                 let username = data.user.username
-                $('#review_list_div').append(review.render() + 'written by: ' + username + `<p><a href="/games/${id}/reviews/${r.id}">Edit Review</a></p>`)
+                $('#review_list_div').append(review.render() + 'written by: ' + username + `<br><p><a href="/games/${id}/reviews/${r.id}">Edit Review</a></p><br>`)
             })
         })
     })
