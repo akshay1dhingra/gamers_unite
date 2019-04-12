@@ -1,18 +1,29 @@
+body {
+    background-color: ivory;
+  }
+
+  .container {
+    color: black;
+    margin-top: 2rem;
+  }
+
+  
+
 #show_game_title_and_description {
     display: inline;
-    color: lightgray;
-    background-color: red;
-    box-shadow: 0 5px 0 darkred;
-    padding: .125em .125em;
-    position: relative;
-    text-decoration: none;
+    /* color: lightgray; */
+    /* background-color: red; */
+    /* box-shadow: 0 5px 0 darkred; */
+    /* padding: .125em .125em;  */
+    /* position: relative;
+    text-decoration: none; */
 }
 
 #links_to_games {
-    background-color: red;
-    box-shadow: 0 5px 0 darkred;
-    color: lightgray;
-    padding: 1em 1.5em;
+    /* background-color: red; */
+    /* box-shadow: 0 5px 0 darkred; */
+    color: mistyrose;
+    /* padding: 1em 1em; */
     position: relative;
     width: 160px;
     text-decoration: none;
@@ -27,4 +38,8 @@
 #links_to_games:active {
     box-shadow: none;
     top: 5px;
+}
+
+.nes-container {
+    width: fit-content;
 }
