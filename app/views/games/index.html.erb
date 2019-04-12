@@ -9,10 +9,10 @@
 <br>
 
 
-<button id="see_more_games_button">See Games</button>
+<button type="button" class="nes-btn is-primary" id="see_more_games_button">See Games</button>
 
 <% if @games.any? %>
-    <p><%= button_to 'See top rated reviews!', reviews_descending_order_path, method: :get %></p>
+    <p><%= button_to 'See top rated reviews!', reviews_descending_order_path, method: :get, :class => "nes-btn is-primary" %></p>
 <% end %>
 
-<p><%= button_to 'Create New Game', new_game_path, method: :get %></p>
+<p><%= button_to 'Create New Game', new_game_path, method: :get, :class => "nes-btn is-primary" %></p>
