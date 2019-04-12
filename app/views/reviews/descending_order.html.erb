@@ -4,5 +4,5 @@ Search by score: <%= form_tag(reviews_descending_order_path, method: :get) do %>
 <% end %>
 <br>
 <% @reviews.descending_order.each do |review| %>
-    <p><%= link_to review.game.name, game_review_path(review.game, review) %> - Score: <%= review.score %> / 10 </p>
+    <p><%= link_to review.game.name, game_review_path(review.game, review) %> - Score: <%= review.score %> / 10 <br>---------------<br></p>
 <% end %> 
